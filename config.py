@@ -1,2 +1,2 @@
 USERNAME = "WRWPhillips"
-TOKEN = "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"
+TOKEN = "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"

@@ -15,9 +15,9 @@ def getProjects():
         url = "https://api.github.com/users/WRWPhillips/repos?per_page=100"
         url2 = "https://api.github.com/users/WRWPhillips/repos?per_page=100/page=2"
         headers = {"Accept":"application/vnd.github.mercy-preview+json"}
-        pinned = ["nasa-photo-of-the-day-project", "ruby-pic2text", "nutritionsite", "Anytime-Fitness-Backend"]
         repos = requests.get(url, headers=headers, auth=(USERNAME,TOKEN)).json()
         projects = []
+        print(repos)
         for repo in repos: 
             if repo["stargazers_count"] >= 1: 
                 project = {
