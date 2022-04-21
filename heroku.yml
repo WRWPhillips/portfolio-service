@@ -4,3 +4,5 @@ setup:
 build: 
   docker:
     web: Dockerfile
+run:
+  web: docker run -it portfolio-service
