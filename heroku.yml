@@ -5,4 +5,5 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: docker run -it portfolio-service
+  web: docker run -t portfolio-service
+
