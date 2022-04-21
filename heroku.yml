@@ -1,0 +1,9 @@
+setup:
+  config:
+    env_file: .env
+build: 
+  docker:
+    web: Dockerfile
+run:
+  web: docker run -t portfolio-service
+
