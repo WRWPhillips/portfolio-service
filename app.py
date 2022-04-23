@@ -5,8 +5,9 @@ import requests
 import os 
 
 app = Flask(__name__)
+CORS(app);
 
-url = "https://api.github.com/users/WRWPhillips/repos?per_page=100"
+url = "https://api.github.com/users/WRWPhillips/repos?per_page=100&sort=updated"
 headers = {"Accept":"application/vnd.github.mercy-preview+json"}
 username = os.getenv("USERNAME")
 token = os.getenv("TOKEN")
