@@ -5,17 +5,18 @@ import requests
 import os 
 
 app = Flask(__name__)
-CORS(app);
+CORS(app)
+
+token = os.getenv("TOKEN")
 
 url = "https://api.github.com/users/WRWPhillips/repos?per_page=100&sort=updated"
-headers = {"Accept":"application/vnd.github.mercy-preview+json"}
-username = os.getenv("USERNAME")
-token = os.getenv("TOKEN")
+headers = {"Accept":"application/vnd.github.mercy-preview+json",
+            "Authorization": token}
 
 @app.route('/projects', methods=["GET"])
 def getProjects():
     try:
-        repos = requests.get(url, headers=headers, auth=(username, token)).json()
+        repos = requests.get(url, headers=headers).json()
         projects = []
         for repo in repos:
             if repo["stargazers_count"] >= 1:
@@ -34,5 +35,5 @@ def getProjects():
             
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    port = 8080
+    app.run(host='0.0.0.0', port=8080, debug=True)

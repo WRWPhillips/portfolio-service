@@ -1,18 +1,14 @@
 FROM python:3.10-slim
 
-RUN apt-get update && apt-get install -y build-essential
+WORKDIR /app
 
-RUN useradd -m heroku-user
+COPY requirements.txt requirements.txt
 
-WORKDIR /app 
+RUN pip3 install -r requirements.txt
 
-RUN chown -R heroku-user:heroku-user /app
+COPY . .
 
-COPY requirements.txt ./
+CMD ["python3", "app.py", "--debug", "run"]
 
-RUN pip install -r requirements.txt
+EXPOSE 8080
 
-COPY . ./
-
-
-CMD ["python", "app.py"]
