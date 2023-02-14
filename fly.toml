@@ -6,9 +6,6 @@ kill_timeout = 5
 processes = []
 
 [env]
- USERNAME="WRWPhillips"
- TOKEN="Bearer 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"
- PORT = "8080"
 
 [experimental]
   auto_rollback = true
